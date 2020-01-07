@@ -1,7 +1,7 @@
 ---
 title: 'Data validation and schema interoperability'
 tags:
-  - Schema
+  - schema
   - data validation
   - interoperability
   - FAIR
@@ -42,15 +42,15 @@ affiliations:
    index: 3
  - name: European bioinformatics institute EMBL-EBI, Wellcome Genome Campus, CB10 1SD, Hinxton, United Kingdom
    index: 4
- - name: Universidad de Oviedo
+ - name: Universidad de Oviedo,C/Federico García Lorca, S/N, CP 33007, Oviedo, Spain
    index: 5
  - name: Thomas Liener consultancy
    index: 6
- - name: Japan
+ - name: Database Center for Life Science, Joint Support-Center for Data Science Research, Research Organization of Information and Systems, Yata 1111, Mishima, Shizuoka, Japan
    index: 7
- - name: Boston
+ - name: Harvard Medical School, Countway Library 10 Shattuck St, Boston, MA 02115, United States
    index: 8
- - name: San Diego
+ - name: The Scripps Research Institute, 10550 N Torrey Pines Rd, La Jolla, CA 92037, United States
    index: 9 
 date: 20 December 2019
 bibliography: paper.bib
@@ -71,7 +71,7 @@ and DisGeNET `[@pinero_disgenet:_2017]`. In order to make it easier for future u
 
 ### Bioschemas
 
-Bioschemas is a community-driven project aiming to support schema.org types for Life Sciences. It contributes to the community by adding life Science types to schema.org, defining profiles adjust to community needs, and developing supporting tools. A Bioschemas profile is a type customization including property cardinality and requirement level. Bioschemas shapes currently focus on profiles corresponding to the Biotea project, particularly those related to bibliographic data. Biotea`[@garcia_biotea:_2018]` provides a model to express scholarly articles in RDF, including not only bibliographic data but also article structure and named entities recognized in the text.
+Schema.org is a collaborative effort aiminingto create, mantain and promote schemas for strutcture data on the Internet `[@schema_org_noauthor_home_nodate]`. Bioschemas is a community-driven project aiming to support schema.org types for Life Sciences. It contributes to the community by adding life Science types to schema.org, defining profiles adjust to community needs, and developing supporting tools. A Bioschemas profile is a type customization including property cardinality and requirement level. Bioschemas shapes currently focus on profiles corresponding to the Biotea project, particularly those related to bibliographic data. Biotea`[@garcia_biotea:_2018]` provides a model to express scholarly articles in RDF, including not only bibliographic data but also article structure and named entities recognized in the text.
 
 Biotea-Bioschemas ShEx shapes are created via a Jupyter notebook from the YAML Bioschemas profile files. Schema.org datatypes are transformed to XML Schema Definition (XSD) while supporting shapes are created for any combination of schema.org types used as ranges. In addition, three main shapes are created for any Bioschemas profile, corresponding to the three property requirement levels, i.e., minimum, recommended and optional. Profile information, i.e., profile name, schema.org type and YAML file location, are encoded in a comma separated value (CSV) file, making it easy to use the code to generate shapes for any other Bioschemas profile. More information is available at the GitHub repository for this project `[@garcia_biotea/validation-shapes-bioschemas_2019]`.
 
@@ -86,6 +86,12 @@ During the BioHackathon we implemented the DisGeNET-RDF ShEx shape `[@rosinach_n
 The HCLS Community Profile for Dataset Descriptions offers a concrete guideline to specify dataset metadata as RDF including elements of data description, versioning, and provenance so as to support discovery, exchange, query, and retrieval of dataset metadata. As part of their work, the HCLS Community created Validata `[@beveridge_validata:_2015]`, a web application to check the compliance of RDF documents to the guideline specifications. Validata used a non-standard extension of ShEx to check various compliance levels.
 
 We created a ShEx compliant document by processing the HCLS guideline using a PHP script `[@dumontier_micheldumontier/hcls-shex_2019]`. The result is several ShEx documents that can be used to check compliance at various levels (MUST, SHOULD, MAY, SHOULD NOT, MUST NOT). We validated our work against the exemplar documents that are provided as part of the guideline, and have also used it to detect errors in HCLS metadata from UniProt. Our work revealed errors in UniProt metadata and the RDFShape tool.
+
+### Rare disease catalogs and registries 
+
+Data on rare disease is currently fragmented across various databases and online resources making efficient and timely use of this data in rare disease research challenging. Several data catalogs exist that collect data from biobanks and patient registries but these data are neither comprehensive or readily interoperable across catalogs.  There is now an international effort to improve the discovery, linkage and sharing of rare disease data through the development of standards and the adoption of FAIR data principles. One component of this process is the development of common metadata models for describing and sharing data across resources using standard vocabularies and ontologies. 
+
+During the hackathon we explored the use of both JSON schema and ShEx for validating data that conforms to schemas developed as part of the European Joint Programme on Rare Diseases (EJP RD) `[@noauthor_ejp_nodate]`. The EJP RD schemas are expressed using JSON Schema, and are accompanied by an additional JSON-LD context file that enables instance JSON data from data providers to be transformed into RDF. At the hackathon we developed a set of new ShEx shapes that could validate the resulting RDF. This required mapping validation rules, such as required properties and cardinality/value type constraints, from JSON schema to an equivalent constraint in ShEx. We were able to demonstrate how more complex types of validation were also possible using ShEx when additional RDF based resources are available. For example, we can express that the `dcat:theme` of rare disease dataset must be a URI and that this URI should be any subclass of the root disease class in the Orphanet rare disease ontology.  The resulting EJP RD schemas and accompanying ShEx files are all available on GitHub `[@jupp_ejp-rd-vpresource-metadata-schema_2019]`. 
 
 ## ShEx creator
 
@@ -116,9 +122,9 @@ The development of ShEx shapes using the RDFShape tools resulted in a user testi
 
 # Future work
 
-Regarding the generation of ShEX shapes, HCLS team plans to Check the compliance of other HCLS dataset metadata documents on the web and report to the community our findings while Bioschemas will work on a validation platform that can later communicate with the FAIR evaluator. Regarding DisGeNET, the ShEX shapes will be finalized and move to a more automatic generation.
+Regarding the generation of ShEX shapes, HCLS team plans to check the compliance of other HCLS dataset metadata documents on the web and report to the community our findings while Bioschemas will work on a validation platform that can later communicate with the FAIR evaluator. Regarding DisGeNET, the ShEX shapes will be finalized and move to a more automatic generation.
 
-In order to overcome the necessity to learn yet another syntax, i.e., ShEx syntax, the work with the ShEx will continue. Currently, the ShEX creator is a rough prototype. Future work consists of (i) making the code more stable and potentially publish it as npm module and  (ii) integrate the ShEX creator within the RDFShape tool website, so it could further be combined with existing functionality, e.g., ShEX visualization in RDFShape platform.
+In order to overcome the necessity to learn yet another syntax, i.e., ShEx syntax, the work on ShEx tooling will continue. Currently, the ShEX creator is a rough prototype. Future work consists of (i) making the code more stable and potentially publish it as npm module and  (ii) integrate the ShEX creator within the RDFShape tool website, so it could further be combined with existing functionality, e.g., ShEX visualization in RDFShape platform.
 
 RDFShape will continue using user feedback to improve the services provided, taking into account scalability requirements of big SPARQL endpoints. Several issues appeared when validating those big data portals, such as the need to improve error messages, and to handle streaming validation for big RDF data. Regarding the visualization, we will work an a direction similar to the one carried out by the Japanese Life Science Database Integration portal `[@noauthor_home_nodate]`. This portal uses data model representations drawn manually, combining instances and schemas. In such a way, they can show a visualization that users will follow more easily as they will observe real data rather than only the underlying model. Future work could extend the visualization capabilities of RDFShape to automatically generate those kind of visualizations. Other future works on the RDFShape platform include the development of Jupyter notebooks integrating and showcasing the different tools provided.
 
