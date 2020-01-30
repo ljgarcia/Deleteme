@@ -42,9 +42,9 @@ affiliations:
    index: 3
  - name: European bioinformatics institute EMBL-EBI, Wellcome Genome Campus, CB10 1SD, Hinxton, United Kingdom
    index: 4
- - name: Universidad de Oviedo,C/Federico García Lorca, S/N, CP 33007, Oviedo, Spain
+ - name: Universidad de Oviedo, C/Federico García Lorca, S/N, CP 33007, Oviedo, Spain
    index: 5
- - name: Thomas Liener consultancy
+ - name: Thomas Liener Consultancy, Liener.Tom@gmail.com 
    index: 6
  - name: Database Center for Life Science, Joint Support-Center for Data Science Research, Research Organization of Information and Systems, Yata 1111, Mishima, Shizuoka, Japan
    index: 7
