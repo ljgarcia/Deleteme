@@ -44,7 +44,7 @@ affiliations:
    index: 4
  - name: Universidad de Oviedo, C/Federico García Lorca, S/N, CP 33007, Oviedo, Spain
    index: 5
- - name: Thomas Liener Consultancy, Liener.Tom@gmail.com 
+ - name: Thomas Liener Consultancy, www.linkedin.com/in/thomas-liener 
    index: 6
  - name: Database Center for Life Science, Joint Support-Center for Data Science Research, Research Organization of Information and Systems, Yata 1111, Mishima, Shizuoka, Japan
    index: 7
