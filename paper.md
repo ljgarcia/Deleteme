@@ -133,4 +133,7 @@ The BioThings team also plan to continue their work after the hackathon to allow
 # Jupyter notebooks created
 * Bioschemas ShEX shapes: https://github.com/biotea/validation-shapes-bioschemas
 
+# Acknowledgements
+This work was done during the BioHackathon 2019 organized by DBCLS/NBDC in September 2019 in Fukuoka, Japan. We thank the organizers for the opportunity and the support via travel grants for some of the authors.
+
 # References
