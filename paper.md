@@ -1,5 +1,6 @@
 ---
 title: 'Data validation and schema interoperability'
+title_short: 'Data validation and schema interoperability'
 tags:
   - schema
   - data validation
@@ -17,22 +18,22 @@ authors:
     affiliation: 3
   - name: Simon Jupp
     orcid: 0000-0002-0643-3144
-    affiliation: 4    
+    affiliation: 4
   - name: Jose Emilio Labra Gayo
     orcid: 0000-0001-8907-5348
-    affiliation: 5    
+    affiliation: 5
   - name: Thomas Liener
     orcid: 0000-0003-3257-9937
-    affiliation: 6    
+    affiliation: 6
   - name: Tazro Ohta
     orcid: 0000-0003-3777-5945
-    affiliation: 7    
+    affiliation: 7
   - name: Núria Queralt-Rosinach
     orcid: 0000-0003-0169-8159
-    affiliation: 8    
+    affiliation: 8
   - name: Chunlei Wu
     orcid: 0000-0002-2629-6124
-    affiliation: 9        
+    affiliation: 9
 affiliations:
  - name: ZB MED Information centre for life sciences, Gleueler Str. 60, 50931 Cologne, Germany
    index: 1
@@ -44,16 +45,18 @@ affiliations:
    index: 4
  - name: Universidad de Oviedo, C/Federico García Lorca, S/N, CP 33007, Oviedo, Spain
    index: 5
- - name: Thomas Liener Consultancy, www.linkedin.com/in/thomas-liener 
+ - name: Thomas Liener Consultancy, www.linkedin.com/in/thomas-liener
    index: 6
  - name: Database Center for Life Science, Joint Support-Center for Data Science Research, Research Organization of Information and Systems, Yata 1111, Mishima, Shizuoka, Japan
    index: 7
  - name: Harvard Medical School, Countway Library 10 Shattuck St, Boston, MA 02115, United States
    index: 8
  - name: The Scripps Research Institute, 10550 N Torrey Pines Rd, La Jolla, CA 92037, United States
-   index: 9 
+   index: 9
 date: 20 December 2019
 bibliography: paper.bib
+authors_short: Leyla Garcia & Jerven Bolleman \emph{et al.}
+group: Schemas Working Group
 ---
 
 # Background
@@ -62,7 +65,7 @@ Validating RDF data becomes necessary in order to ensure data compliance against
 
 During the DBCLS/NBDC 2019 BioHackathon, we worked on a variety of topics related to RDF data validation, including (i) development of ShEX shapes for a number of datasets, (ii) development of a tool to semi-automatically create ShEx shapes, (iii) improvements to the RDFShape tool [@labra-gayo_rdfshape:_2018] and (iv) enabling validation schema conversion from one format to the other. In the following sections we detailed the work done on each front.
 
-# Hackathon results 
+# Hackathon results
 
 ## Development of ShEx shapes
 
@@ -87,11 +90,11 @@ The HCLS Community Profile for Dataset Descriptions offers a concrete guideline 
 
 We created a ShEx compliant document by processing the HCLS guideline using a PHP script [@dumontier_micheldumontier/hcls-shex_2019]. The result is several ShEx documents that can be used to check compliance at various levels (MUST, SHOULD, MAY, SHOULD NOT, MUST NOT). We validated our work against the exemplar documents that are provided as part of the guideline, and have also used it to detect errors in HCLS metadata from UniProt. Our work revealed errors in UniProt metadata and the RDFShape tool.
 
-### Rare disease catalogs and registries 
+### Rare disease catalogs and registries
 
-Data on rare disease is currently fragmented across various databases and online resources making efficient and timely use of this data in rare disease research challenging. Several data catalogs exist that collect data from biobanks and patient registries but these data are neither comprehensive or readily interoperable across catalogs.  There is now an international effort to improve the discovery, linkage and sharing of rare disease data through the development of standards and the adoption of FAIR data principles. One component of this process is the development of common metadata models for describing and sharing data across resources using standard vocabularies and ontologies. 
+Data on rare disease is currently fragmented across various databases and online resources making efficient and timely use of this data in rare disease research challenging. Several data catalogs exist that collect data from biobanks and patient registries but these data are neither comprehensive or readily interoperable across catalogs.  There is now an international effort to improve the discovery, linkage and sharing of rare disease data through the development of standards and the adoption of FAIR data principles. One component of this process is the development of common metadata models for describing and sharing data across resources using standard vocabularies and ontologies.
 
-During the hackathon we explored the use of both JSON schema and ShEx for validating data that conforms to schemas developed as part of the European Joint Programme on Rare Diseases (EJP RD) [@noauthor_ejp_nodate]. The EJP RD schemas are expressed using JSON Schema, and are accompanied by an additional JSON-LD context file that enables instance JSON data from data providers to be transformed into RDF. At the hackathon we developed a set of new ShEx shapes that could validate the resulting RDF. This required mapping validation rules, such as required properties and cardinality/value type constraints, from JSON schema to an equivalent constraint in ShEx. We were able to demonstrate how more complex types of validation were also possible using ShEx when additional RDF based resources are available. For example, we can express that the `dcat:theme` of rare disease dataset must be a URI and that this URI should be any subclass of the root disease class in the Orphanet rare disease ontology.  The resulting EJP RD schemas and accompanying ShEx files are all available on GitHub [@jupp_ejp-rd-vpresource-metadata-schema_2019]. 
+During the hackathon we explored the use of both JSON schema and ShEx for validating data that conforms to schemas developed as part of the European Joint Programme on Rare Diseases (EJP RD) [@noauthor_ejp_nodate]. The EJP RD schemas are expressed using JSON Schema, and are accompanied by an additional JSON-LD context file that enables instance JSON data from data providers to be transformed into RDF. At the hackathon we developed a set of new ShEx shapes that could validate the resulting RDF. This required mapping validation rules, such as required properties and cardinality/value type constraints, from JSON schema to an equivalent constraint in ShEx. We were able to demonstrate how more complex types of validation were also possible using ShEx when additional RDF based resources are available. For example, we can express that the `dcat:theme` of rare disease dataset must be a URI and that this URI should be any subclass of the root disease class in the Orphanet rare disease ontology.  The resulting EJP RD schemas and accompanying ShEx files are all available on GitHub [@jupp_ejp-rd-vpresource-metadata-schema_2019].
 
 ## ShEx creator
 
