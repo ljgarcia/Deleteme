@@ -63,7 +63,7 @@ group: Schemas Working Group
 
 Validating RDF data becomes necessary in order to ensure data compliance against the conceptualization model it follows, e.g., schema or ontology behind the data. Validation could also help with data consistency and completeness. There are different approaches to validate RDF data. For instance, JSON schema is particularly useful for data expressed in JSON-LD RDF serialization while Shape Expression (ShEx)[@baker_shape_2019] and Shapes Constraint Language (SHACL) [@knublauch_shapes_2017] can be used with other serialization as well. Currently, no validation approach is prevalent regarding others, depending on data characteristics and personal preferences one or the other can be used. In some cases, the approaches are interchangeable; however, that is not always the case, making it necessary to identify a subset among them that can be seamlessly translated from one to another.
 
-During the DBCLS/NBDC 2019 BioHackathon, we worked on a variety of topics related to RDF data validation, including (i) development of ShEx shapes for a number of datasets, (ii) development of a tool to semi-automatically create ShEx shapes, (iii) improvements to the RDFShape tool [@labra-gayo_rdfshape:_2018] and (iv) enabling validation schema conversion from one format to the other. In the following sections we detailed the work done on each front.
+During the NBDC/DBCLS 2019 BioHackathon, we worked on a variety of topics related to RDF data validation, including (i) development of ShEx shapes for a number of datasets, (ii) development of a tool to semi-automatically create ShEx shapes, (iii) improvements to the RDFShape tool [@labra-gayo_rdfshape:_2018] and (iv) enabling validation schema conversion from one format to the other. In the following sections we detailed the work done on each front.
 
 # Hackathon results
 
@@ -137,6 +137,6 @@ The BioThings team also plan to continue their work after the hackathon to allow
 * Bioschemas ShEx shapes: https://github.com/biotea/validation-shapes-bioschemas
 
 # Acknowledgements
-This work was done during the BioHackathon 2019 organized by DBCLS/NBDC in September 2019 in Fukuoka, Japan. We thank the organizers for the opportunity and the support via travel grants for some of the authors.
+This work was done during the BioHackathon 2019 organized by NBDC/DBCLS in September 2019 in Fukuoka, Japan. We thank the organizers for the opportunity and the support via travel grants for some of the authors.
 
 # References
