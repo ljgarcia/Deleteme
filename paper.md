@@ -2,7 +2,7 @@
 title: 'Data validation and schema interoperability'
 title_short: 'Data validation and schema interoperability'
 tags:
-  - Schema
+  - schema
   - data validation
   - interoperability
   - FAIR
@@ -43,15 +43,15 @@ affiliations:
    index: 3
  - name: European bioinformatics institute EMBL-EBI, Wellcome Genome Campus, CB10 1SD, Hinxton, United Kingdom
    index: 4
- - name: Universidad de Oviedo
+ - name: Universidad de Oviedo, C/Federico García Lorca, S/N, CP 33007, Oviedo, Spain
    index: 5
- - name: Thomas Liener consultancy
+ - name: Thomas Liener Consultancy, www.linkedin.com/in/thomas-liener
    index: 6
- - name: Japan
+ - name: Database Center for Life Science, Joint Support-Center for Data Science Research, Research Organization of Information and Systems, Yata 1111, Mishima, Shizuoka, Japan
    index: 7
- - name: Boston
+ - name: Harvard Medical School, Countway Library 10 Shattuck St, Boston, MA 02115, United States
    index: 8
- - name: Scripps Research, San Diego
+ - name: The Scripps Research Institute, 10550 N Torrey Pines Rd, La Jolla, CA 92037, United States
    index: 9
 date: 20 December 2019
 bibliography: paper.bib
@@ -61,9 +61,9 @@ group: Schemas Working Group
 
 # Background
 
-Validating RDF data becomes necessary in order to ensure data compliance against the conceptualization model it follows, e.g., schema or ontology behind the data. Validation could also help with data consistency and completeness. There are different approaches to validate RDF data. For instance, JSON schema is particularly useful for data expressed in JSON-LD RDF serialization while Shape Expression (ShEX) [@baker_shape_2019] and Shapes Constraint Language (SHACL) [@knublauch_shapes_2017] can be used with other serialization as well. Currently, no validation approach is prevalent regarding others, depending on data characteristics and personal preferences one or the other can be used. In some cases, the approaches are interchangeable; however, that is not always the case, making it necessary to identify a subset among them that can be seamlessly translated from one to another.
+Validating RDF data becomes necessary in order to ensure data compliance against the conceptualization model it follows, e.g., schema or ontology behind the data. Validation could also help with data consistency and completeness. There are different approaches to validate RDF data. For instance, JSON schema is particularly useful for data expressed in JSON-LD RDF serialization while Shape Expression (ShEX)[@baker_shape_2019] and Shapes Constraint Language (SHACL) [@knublauch_shapes_2017] can be used with other serialization as well. Currently, no validation approach is prevalent regarding others, depending on data characteristics and personal preferences one or the other can be used. In some cases, the approaches are interchangeable; however, that is not always the case, making it necessary to identify a subset among them that can be seamlessly translated from one to another.
 
-During the DBCLS/NDBC 2019 BioHackathon, we worked on a variety of topics related to RDF data validation, including (i) development of ShEX shapes for a number of datasets, (ii) development of a tool to semi-automatically create ShEx shapes, (iii) improvements to the RDFShape tool [@labra-gayo_rdfshape:_2018] and (iv) enabling validation schema conversion from one format to the other. In the following sections we detailed the work done on each front.
+During the DBCLS/NBDC 2019 BioHackathon, we worked on a variety of topics related to RDF data validation, including (i) development of ShEX shapes for a number of datasets, (ii) development of a tool to semi-automatically create ShEx shapes, (iii) improvements to the RDFShape tool [@labra-gayo_rdfshape:_2018] and (iv) enabling validation schema conversion from one format to the other. In the following sections we detailed the work done on each front.
 
 # Hackathon results
 
@@ -74,7 +74,7 @@ and DisGeNET [@pinero_disgenet:_2017]. In order to make it easier for future upd
 
 ### Bioschemas
 
-Bioschemas is a community-driven project aiming to support schema.org types for Life Sciences. It contributes to the community by adding life Science types to schema.org, defining profiles adjust to community needs, and developing supporting tools. A Bioschemas profile is a type customization including property cardinality and requirement level. Bioschemas shapes currently focus on profiles corresponding to the Biotea project, particularly those related to bibliographic data. Biotea[@garcia_biotea:_2018] provides a model to express scholarly articles in RDF, including not only bibliographic data but also article structure and named entities recognized in the text.
+Schema.org is a collaborative effort aiminingto create, mantain and promote schemas for strutcture data on the Internet [@schema_org_noauthor_home_nodate]. Bioschemas is a community-driven project aiming to support schema.org types for Life Sciences. It contributes to the community by adding life Science types to schema.org, defining profiles adjusted to community needs, and developing supporting tools. A Bioschemas profile is a type customization including property cardinality and requirement level. Bioschemas shapes currently focus on profiles corresponding to the Biotea project, particularly those related to bibliographic data. Biotea [@garcia_biotea:_2018] provides a model to express scholarly articles in RDF, including not only bibliographic data but also article structure and named entities recognized in the text.
 
 Biotea-Bioschemas ShEx shapes are created via a Jupyter notebook from the YAML Bioschemas profile files. Schema.org datatypes are transformed to XML Schema Definition (XSD) while supporting shapes are created for any combination of schema.org types used as ranges. In addition, three main shapes are created for any Bioschemas profile, corresponding to the three property requirement levels, i.e., minimum, recommended and optional. Profile information, i.e., profile name, schema.org type and YAML file location, are encoded in a comma separated value (CSV) file, making it easy to use the code to generate shapes for any other Bioschemas profile. More information is available at the GitHub repository for this project [@garcia_biotea/validation-shapes-bioschemas_2019].
 
@@ -90,6 +90,12 @@ The HCLS Community Profile for Dataset Descriptions offers a concrete guideline 
 
 We created a ShEx compliant document by processing the HCLS guideline using a PHP script [@dumontier_micheldumontier/hcls-shex_2019]. The result is several ShEx documents that can be used to check compliance at various levels (MUST, SHOULD, MAY, SHOULD NOT, MUST NOT). We validated our work against the exemplar documents that are provided as part of the guideline, and have also used it to detect errors in HCLS metadata from UniProt. Our work revealed errors in UniProt metadata and the RDFShape tool.
 
+### Rare disease catalogs and registries
+
+Data on rare disease is currently fragmented across various databases and online resources making efficient and timely use of this data in rare disease research challenging. Several data catalogs exist that collect data from biobanks and patient registries but these data are neither comprehensive or readily interoperable across catalogs.  There is now an international effort to improve the discovery, linkage and sharing of rare disease data through the development of standards and the adoption of FAIR data principles. One component of this process is the development of common metadata models for describing and sharing data across resources using standard vocabularies and ontologies.
+
+During the hackathon we explored the use of both JSON schema and ShEx for validating data that conforms to schemas developed as part of the European Joint Programme on Rare Diseases (EJP RD) [@noauthor_ejp_nodate]. The EJP RD schemas are expressed using JSON Schema, and are accompanied by an additional JSON-LD context file that enables instance JSON data from data providers to be transformed into RDF. At the hackathon we developed a set of new ShEx shapes that could validate the resulting RDF. This required mapping validation rules, such as required properties and cardinality/value type constraints, from JSON schema to an equivalent constraint in ShEx. We were able to demonstrate how more complex types of validation were also possible using ShEx when additional RDF based resources are available. For example, we can express that the `dcat:theme` of rare disease dataset must be a URI and that this URI should be any subclass of the root disease class in the Orphanet rare disease ontology.  The resulting EJP RD schemas and accompanying ShEx files are all available on GitHub [@jupp_ejp-rd-vpresource-metadata-schema_2019].
+
 ## ShEx creator
 
 While ShEX is very useful as demonstrated to validate RDF data, the syntax to actually write a ShEX expression can be hard for new users and is time-consuming also for experienced people. Therefore, a prototype of a ShEX creator was proposed for the Biohackathon. This tool should help users to write correct ShEX expressions faster. The prototype is implemented as a javascript tool, supporting the user through e.g. dropdown menus to create a correct ShEX structure and it uses the RDFShape API in the background to validate the created ShEX expression. The prototype can be found at the corresponding GitHub repository [@liener_lltommy/rdfvalidation4humans_2019].
@@ -100,7 +106,7 @@ The RDFShape tool [@labra-gayo_rdfshape:_2018] comprises a set of tools to creat
 
 We also explored and implemented new visualization features for ShEx. Our implementation resulted in the  separation in several modules:
 - RDFShape client [@noauthor_weso/rdfshape-client_2019] which consists of a javascript client based on the React framework.
-- RDFShape server [@noauthor_weso/rdfshape_2019] contains the server part and is implemented in Scala using the [http4s](https://http4s.org/) library.
+- RDFShape server [@noauthor_weso/rdfshape_2019] contains the server part and is implemented in Scala using the http4s [@noauthor_http4s_nodate] library.
 - umlSHaclEx] [@noauthor_weso/umlshaclex_2019] is a module that generates UML-like visualizations from Shapes schemas. The library can be used as a standalone command line tool.
 - SHaclEX [@noauthor_weso/shaclex_2019] contains the main validation modules for ShEx and SHACL.
 - SRDF [@noauthor_weso/srdf_2019] defines a simple RDF interface with the main features required by the validation library. The module contains several implementations of that interface which enables the use of validation with Apache Jena [@noauthor_apache_nodate] models, RDF4j [@guindon_eclipse_nodate], or SPARQL endpoints.
@@ -119,9 +125,9 @@ The development of ShEx shapes using the RDFShape tools resulted in a user testi
 
 # Future work
 
-Regarding the generation of ShEX shapes, HCLS team plans to Check the compliance of other HCLS dataset metadata documents on the web and report to the community our findings while Bioschemas will work on a validation platform that can later communicate with the FAIR evaluator. Regarding DisGeNET, the ShEX shapes will be finalized and move to a more automatic generation.
+Regarding the generation of ShEX shapes, HCLS team plans to check the compliance of other HCLS dataset metadata documents on the web and report to the community our findings while Bioschemas will work on a validation platform that can later communicate with the FAIR evaluator. Regarding DisGeNET, the ShEX shapes will be finalized and move to a more automatic generation.
 
-In order to overcome the necessity to learn yet another syntax, i.e., ShEx syntax, the work with the ShEx will continue. Currently, the ShEX creator is a rough prototype. Future work consists of (i) making the code more stable and potentially publish it as npm module and  (ii) integrate the ShEX creator within the RDFShape tool website, so it could further be combined with existing functionality, e.g., ShEX visualization in RDFShape platform.
+In order to overcome the necessity to learn yet another syntax, i.e., ShEx syntax, the work on ShEx tooling will continue. Currently, the ShEX creator is a rough prototype. Future work consists of (i) making the code more stable and potentially publish it as npm module and  (ii) integrate the ShEX creator within the RDFShape tool website, so it could further be combined with existing functionality, e.g., ShEX visualization in RDFShape platform.
 
 RDFShape will continue using user feedback to improve the services provided, taking into account scalability requirements of big SPARQL endpoints. Several issues appeared when validating those big data portals, such as the need to improve error messages, and to handle streaming validation for big RDF data. Regarding the visualization, we will work an a direction similar to the one carried out by the Japanese Life Science Database Integration portal [@noauthor_home_nodate]. This portal uses data model representations drawn manually, combining instances and schemas. In such a way, they can show a visualization that users will follow more easily as they will observe real data rather than only the underlying model. Future work could extend the visualization capabilities of RDFShape to automatically generate those kind of visualizations. Other future works on the RDFShape platform include the development of Jupyter notebooks integrating and showcasing the different tools provided.
 
@@ -129,5 +135,8 @@ The BioThings team also plan to continue their work after the hackathon to allow
 
 # Jupyter notebooks created
 * Bioschemas ShEX shapes: https://github.com/biotea/validation-shapes-bioschemas
+
+# Acknowledgements
+This work was done during the BioHackathon 2019 organized by DBCLS/NBDC in September 2019 in Fukuoka, Japan. We thank the organizers for the opportunity and the support via travel grants for some of the authors.
 
 # References
