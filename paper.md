@@ -1,5 +1,6 @@
 ---
 title: 'Data validation and schema interoperability'
+title_short: 'Data validation and schema interoperability'
 tags:
   - Schema
   - data validation
@@ -17,22 +18,22 @@ authors:
     affiliation: 3
   - name: Simon Jupp
     orcid: 0000-0002-0643-3144
-    affiliation: 4    
+    affiliation: 4
   - name: Jose Emilio Labra Gayo
     orcid: 0000-0001-8907-5348
-    affiliation: 5    
+    affiliation: 5
   - name: Thomas Liener
     orcid: 0000-0003-3257-9937
-    affiliation: 6    
+    affiliation: 6
   - name: Tazro Ohta
     orcid: 0000-0003-3777-5945
-    affiliation: 7    
+    affiliation: 7
   - name: Núria Queralt-Rosinach
     orcid: 0000-0003-0169-8159
-    affiliation: 8    
+    affiliation: 8
   - name: Chunlei Wu
     orcid: 0000-0002-2629-6124
-    affiliation: 9        
+    affiliation: 9
 affiliations:
  - name: ZB MED Information centre for life sciences, Gleueler Str. 60, 50931 Cologne, Germany
    index: 1
@@ -50,10 +51,12 @@ affiliations:
    index: 7
  - name: Boston
    index: 8
- - name: San Diego
-   index: 9 
+ - name: Scripps Research, San Diego
+   index: 9
 date: 20 December 2019
 bibliography: paper.bib
+authors_short: Leyla Garcia & Jerven Bolleman \emph{et al.}
+group: Schemas Working Group
 ---
 
 # Background
@@ -62,7 +65,7 @@ Validating RDF data becomes necessary in order to ensure data compliance against
 
 During the DBCLS/NDBC 2019 BioHackathon, we worked on a variety of topics related to RDF data validation, including (i) development of ShEX shapes for a number of datasets, (ii) development of a tool to semi-automatically create ShEx shapes, (iii) improvements to the RDFShape tool [@labra-gayo_rdfshape:_2018] and (iv) enabling validation schema conversion from one format to the other. In the following sections we detailed the work done on each front.
 
-# Hackathon results 
+# Hackathon results
 
 ## Development of ShEx shapes
 
