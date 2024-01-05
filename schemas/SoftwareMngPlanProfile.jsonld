@@ -585,6 +585,48 @@
       "rdfs:subClassOf": {
         "@id": "maSMP:SoftwareManagementPlan"
       },
+      "$validation": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "researchProject": {
+            "description": "Link to the research project this mng plan belongs to",
+            "owl:cardinality": "many"
+          },
+          "ethicalLegalSocial": {
+            "description": "Considerations wrt ethical, legal and social aspects",
+            "owl:cardinality": "one"
+          },
+          "relatedMngPlans": {
+            "description": "Link to other management plans associated to this one, e.g., an SMP associated to the DMP on the datasets used by the software",
+            "owl:cardinality": "many"
+          },
+          "questionnaire": {
+            "description": "Questions asked in this management plan. If the order is important <a href='https://schema.org/ItemList' target='_blank'>ItemList</a> can be used, otherwise an array of <a href='https://schema.org/Question' target='_blank'>Question</a> would work.",
+            "owl:cardinality": "many"
+          },
+          "alternateName": {
+            "description": "An alias for the item.",
+            "owl:cardinality": "many"
+          },
+          "name": {
+            "description": "The name of the item.",
+            "owl:cardinality": "one"
+          }
+        },
+        "required": [
+          "researchProject",
+          "name"
+        ],
+        "recommended": [
+          "ethicalLegalSocial",
+          "relatedMngPlans"
+        ],
+        "optional": [
+          "alternateName",
+          "questionnaire"
+        ]
+      },
       "schemaVersion": [
         "https://schema.org/docs/releases.html#v23.0"
       ]
