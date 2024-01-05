@@ -1,0 +1,43 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "temp": "https://discovery.biothings.io/view/temp/"
+  },
+  "@graph": [
+    {
+      "@id": "temp:OutputManagementPlan",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Management plans (e.g., data, software, other research output/outcomes/artifacts) are a tool for researchers and research stewards to organize and plan around research artifacts, from initial ideas to publication. This type builds on top of <a href='https://schema.datacite.org/meta/kernel-4.4/' target='_blank'>DataCite Metadata Schema 4.4</a> and maps it mandatory elements to schema.org to represent research artifact management plans. This type could be extended to cover particularities wrt management plans for specific research outcomes, e.g., data management plans or software management plans.",
+      "rdfs:label": "OutputManagementPlan",
+      "rdfs:subClassOf": {
+        "@id": "maSMP:OutputManagementPlan"
+      },
+      "$validation": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "alternateName": {
+            "description": "An alias for the item.",
+            "owl:cardinality": "many"
+          },
+          "name": {
+            "description": "The name of the item.",
+            "owl:cardinality": "one"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "recommended": [],
+        "optional": [
+          "alternateName"
+        ]
+      },
+      "schemaVersion": [
+        "https://schema.org/docs/releases.html#v23.0"
+      ]
+    }
+  ]
+}
