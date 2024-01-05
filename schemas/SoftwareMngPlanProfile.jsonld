@@ -581,10 +581,10 @@
 
     
     {
-      "@id": "maSMPProfile:SoftwareManagementPlan_Profile",
+      "@id": "maSMPProfile:SoftwareManagementPlanProfile",
       "@type": "rdfs:Class",
       "rdfs:comment": "Software Management plan - Profile.",
-      "rdfs:label": "SoftwareManagementPlan_Profile",
+      "rdfs:label": "SoftwareManagementPlanProfile",
       "rdfs:subClassOf": {
         "@id": "maSMP:SoftwareManagementPlan"
       },
