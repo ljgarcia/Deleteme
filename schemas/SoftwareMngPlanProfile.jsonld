@@ -576,6 +576,18 @@
           "@id": "maSMP:SoftwareSourceCode"
         }
       ]
+    },
+    {
+      "@id": "maSMPProfile:ProfileSoftwareManagementPlan",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Profile Software Management plan.",
+      "rdfs:label": "ProfileSoftwareManagementPlan",
+      "rdfs:subClassOf": {
+        "@id": "maSMP:SoftwareManagementPlan"
+      },
+      "schemaVersion": [
+        "https://schema.org/docs/releases.html#v23.0"
+      ]
     }
   ]
 }
