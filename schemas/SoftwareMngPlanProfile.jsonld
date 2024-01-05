@@ -557,7 +557,7 @@
       "rdfs:comment": "Software Management plan.",
       "rdfs:label": "SoftwareManagementPlan",
       "rdfs:subClassOf": {
-        "@id": "maSMP:SoftwareManagementPlan"
+        "@id": "maSMP:OutputManagementPlan"
       },
       "schemaVersion": [
         "https://schema.org/docs/releases.html#v23.0"
@@ -575,21 +575,6 @@
         {
           "@id": "maSMP:SoftwareSourceCode"
         }
-      ]
-    },
-
-
-    
-    {
-      "@id": "maSMPProfile:SoftwareManagementPlanProfile",
-      "@type": "rdfs:Class",
-      "rdfs:comment": "Software Management plan - Profile.",
-      "rdfs:label": "SoftwareManagementPlanProfile",
-      "rdfs:subClassOf": {
-        "@id": "maSMP:SoftwareManagementPlan"
-      },
-      "schemaVersion": [
-        "https://schema.org/docs/releases.html#v23.0"
       ]
     }
   ]
