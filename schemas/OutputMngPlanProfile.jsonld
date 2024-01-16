@@ -3,16 +3,14 @@
     "schema": "http://schema.org/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "owl": "http://www.w3.org/2002/07/owl/",
-    "maSMP": "https://discovery.biothings.io/view/maSMP",
-    "maSMPProfile": "https://discovery.biothings.io/view/maSMPProfile/"
+    "maSMP": "https://discovery.biothings.io/view/maSMP/"
   },
   "@graph": [
     {
-      "@id": "maSMPProfile:OutputManagementPlan",
+      "@id": "maSMP:SoftwareManagementPlan",
       "@type": "rdfs:Class",
-      "rdfs:comment": "Management plans (e.g., data, software, other research output/outcomes/artifacts) are a tool for researchers and research stewards to organize and plan around research artifacts, from initial ideas to publication. This type builds on top of <a href='https://schema.datacite.org/meta/kernel-4.4/' target='_blank'>DataCite Metadata Schema 4.4</a> and maps it mandatory elements to schema.org to represent research artifact management plans. This type could be extended to cover particularities wrt management plans for specific research outcomes, e.g., data management plans or software management plans.",
-      "rdfs:label": "OutputManagementPlan",
+      "rdfs:comment": "Software Management plan.",
+      "rdfs:label": "SoftwareManagementPlan",
       "rdfs:subClassOf": {
         "@id": "maSMP:OutputManagementPlan"
       },
@@ -21,24 +19,104 @@
         "type": "object",
         "properties": {
           "alternateName": {
-            "description": "An alias for the item.",
+            "description": "",
             "owl:cardinality": "many"
           },
           "name": {
-            "description": "The name of the item.",
+            "description": "",
             "owl:cardinality": "one"
+          },
+          "author": {
+            "description": "",
+            "owl:cardinality": "many"
+          },
+          "contributor": {
+            "description": "",
+            "owl:cardinality": "many"
+          },
+          "datePublished": {
+            "description": "",
+            "owl:cardinality": "one"
+          },
+          "headline": {
+            "description": "",
+            "owl:cardinality": "one"
+          },
+          "identifier": {
+            "description": "",
+            "owl:cardinality": "many"
+          },
+          "maintainer": {
+            "description": "",
+            "owl:cardinality": "many"
+          },
+          "publisher": {
+            "description": "",
+            "owl:cardinality": "many"
+          },
+          "researchProject": {
+            "description": "",
+            "owl:cardinality": "many"
+          },
+          "ethicalLegalSocial": {
+            "description": "",
+            "owl:cardinality": "one"
+          },
+          "relatedMngPlan": {
+            "description": "",
+            "owl:cardinality": "many"
+          },
+          "questionnaire": {
+            "description": "",
+            "owl:cardinality": "many"
+          },
+          "managedSoftware": {
+            "description": "",
+            "owl:cardinality": "many"
+          },
+          "sameAs": {
+            "description": "",
+            "owl:cardinality": "many"
           }
         },
         "required": [
-          "name"
+          "name",
+          "author",
+          "datePublished",
+          "identifier",
+          "publisher",
+          "researchProject"
         ],
-        "recommended": [],
+        "recommended": [
+          "archivedAt",
+          "maintainer",
+          "ethicalLegalSocial",
+          "relatedMngPlan",
+          "sameAs"
+        ],
         "optional": [
-          "alternateName"
+          "alternateName",
+          "contributor",
+          "headline",
+          "questionnaire"
         ]
       },
       "schemaVersion": [
         "https://schema.org/docs/releases.html#v23.0"
+      ]
+    },
+    {
+      "@id": "maSMP:managedSoftware",
+      "@type": "rdf:Property",
+      "rdfs:comment": "SoftwareSourceCode handled by this software mng plan. Software applications, tools and releases from the source code should be linked directly to the source code.",
+      "rdfs:label": "managedSoftware",
+      "schema:domainIncludes": {
+        "@id": "maSMP:SoftwareManagementPlan"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "maSMP:SoftwareSourceCode"
+        }
       ]
     }
   ]
