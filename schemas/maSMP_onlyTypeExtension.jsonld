@@ -29,6 +29,12 @@
       "schema:rangeIncludes": {
         "@id": "schema:Text"
       },
+      "rdfs:domain": {
+        "@id": "maSMP:SoftwareRunAction"
+      },
+      "rdfs:range": {
+        "@id": "schema:Text"
+      },
       "rdfs:comment": "If the running was done by a direct execution (rather than via a container), indicate the operating system.",
       "rdfs:label": "operatingSystem"
     },
