@@ -108,7 +108,7 @@
       ]
     },
     {
-      "@id": "maSMPProfiles:ethicalLegalSocial",
+      "@id": "maSMP:ethicalLegalSocial",
       "@type": "rdf:Property",
       "rdfs:comment": "Considerations wrt ethical, legal and social aspects",
       "rdfs:label": "ethicalLegalSocial",
