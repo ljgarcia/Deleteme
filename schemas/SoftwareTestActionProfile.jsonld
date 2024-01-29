@@ -26,7 +26,7 @@
             "owl:cardinality": "one"
           },
           "testInput": {
-            "description": "Input used to performed the test. Some tests may not require any input, some may require multiple ones. If the order is important in the case of multiple inputs, a ListItem could help.",
+            "description": "Input used to performed the test. Some tests may not require any input, some may require multiple ones. If order or grouping is important in the case of multiple inputs, a ListItem could help.",
             "owl:cardinality": "many"
           },
           "testType": {
