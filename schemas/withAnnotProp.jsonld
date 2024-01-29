@@ -1,14 +1,5 @@
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "bs": "https://bioschemas.org/terms/",
-    "codemeta": "https://w3id.org/codemeta/",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "maSMP": "https://discovery.biothings.io/view/maSMP/"
-  },
-  "@graph": [
-    {
+  {
       "@id": "https://discovery.biothings.io/view/maSMP/",
       "schema:author": [
         {
@@ -36,6 +27,15 @@
       "schema:name": "maSMP metadata schema",
       "schema:version": "2.1.0"
     },
+  "@context": {
+    "schema": "http://schema.org/",
+    "bs": "https://bioschemas.org/terms/",
+    "codemeta": "https://w3id.org/codemeta/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "maSMP": "https://discovery.biothings.io/view/maSMP/"
+  },
+  "@graph": [
     {
       "@id": "maSMP:SoftwareRunAction",
       "@type": "rdfs:Class",
