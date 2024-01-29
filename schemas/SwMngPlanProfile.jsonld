@@ -113,7 +113,7 @@
       "rdfs:comment": "Considerations wrt ethical, legal and social aspects",
       "rdfs:label": "ethicalLegalSocial",
       "schema:domainIncludes": {
-        "@id": "maSMPProfiles:SoftwareManagementPlanProfile"
+        "@id": "schema:CreativeWork"
       },
       "schema:rangeIncludes": {
         "@id": "schema:Text"
